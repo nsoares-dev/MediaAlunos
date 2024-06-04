@@ -1,0 +1,49 @@
+﻿@model SistemaAvaliacao.Models.Aluno
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Aluno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AlunoId" />
+            <div class="form-group">
+                <label asp-for="NomeAluno" class="control-label"></label>
+                <input asp-for="NomeAluno" class="form-control" />
+                <span asp-validation-for="NomeAluno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaProva" class="control-label"></label>
+                <input asp-for="NotaProva" class="form-control" />
+                <span asp-validation-for="NotaProva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaTrabalho" class="control-label"></label>
+                <input asp-for="NotaTrabalho" class="form-control" />
+                <span asp-validation-for="NotaTrabalho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaTeste" class="control-label"></label>
+                <input asp-for="NotaTeste" class="form-control" />
+                <span asp-validation-for="NotaTeste" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

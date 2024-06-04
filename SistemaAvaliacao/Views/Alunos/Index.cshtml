@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SistemaAvaliacao.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeAluno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaProva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaTrabalho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaTeste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvaliacaoFinal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeAluno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotaProva)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotaTrabalho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NotaTeste)
+                </td>
+                <td>
+                    @Html.DisplayFor(ModelItem => item.Media)
+                </td>
+                <td>
+                    @if(item.Media >= 6){
+                        item.AvaliacaoFinal = "Aprovado";
+                    } else
+                    {
+                        item.AvaliacaoFinal = "Reprovado";
+                    }
+                    @Html.DisplayFor(modelItem => item.AvaliacaoFinal)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AlunoId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AlunoId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AlunoId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
