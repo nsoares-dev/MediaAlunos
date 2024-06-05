@@ -54,9 +54,11 @@
                     @Html.DisplayFor(ModelItem => item.Media)
                 </td>
                 <td>
-                    @if(item.Media >= 6){
+                    @if (item.Media >= 6)
+                    {
                         item.AvaliacaoFinal = "Aprovado";
-                    } else
+                    }
+                    else
                     {
                         item.AvaliacaoFinal = "Reprovado";
                     }
@@ -71,3 +73,7 @@
         }
     </tbody>
 </table>
+<div>
+    <button onclick="location.href='@Url.Action("ExportPdf", "Alunos")'">Exportar para PDF</button>
+    <button onclick="location.href='@Url.Action("ExportCsv", "Alunos")'">Exportar para CSV</button>
+</div>
